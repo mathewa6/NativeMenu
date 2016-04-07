@@ -4,7 +4,7 @@ import UIKit
 
 class DataModel: NSObject {
     let menuList = ["Login", "Shop", "Contact Us", "Help"]
-    
+    let menuDismissedNotification = "MenuDismissed"
     override init() {
         print("Data Ready")
     }

@@ -35,7 +35,11 @@ class MenuViewController: UITableViewController {
             controllerToPush?.title = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
         }
         
-        self.navigationController?.pushViewController(controllerToPush!, animated: true)
+        self.dismissViewControllerAnimated(true) { 
+            NSNotificationCenter.defaultCenter().postNotificationName(self.model.menuDismissedNotification, object: nil, userInfo: ["vc" : controllerToPush!])
+            print("Posted")
+        }
+//        self.navigationController?.pushViewController(controllerToPush!, animated: true)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
