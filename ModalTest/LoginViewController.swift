@@ -13,6 +13,21 @@ class LoginViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func showMenu(sender: UIBarButtonItem) {
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("MenuNavigation")
+        controller?.modalPresentationStyle = .FullScreen
+        controller?.modalTransitionStyle = .CoverVertical
+        self.navigationController?.presentViewController(controller!, animated: true, completion: nil)
+    }
     //http://www.ioscreator.com/tutorials/move-view-behind-keyboard-ios8-swift
     
+    override func viewDidLoad() {
+        let menuButton = UIBarButtonItem(title: "Menu",
+                                         style: .Plain,
+                                         target: self,
+                                         action: #selector(showMenu(_:)))
+        self.navigationItem.rightBarButtonItem = menuButton
+    }
+    
+
 }
