@@ -8,6 +8,10 @@ class MenuViewController: UITableViewController {
         self.title = "Menu"
     }
     
+    @IBAction func dismissMenu(sender: UIBarButtonItem) {
+        self.prepareForDismiss(nil)
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -35,11 +39,16 @@ class MenuViewController: UITableViewController {
             controllerToPush?.title = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
         }
         
-        self.dismissViewControllerAnimated(true) { 
-            NSNotificationCenter.defaultCenter().postNotificationName(self.model.menuDismissedNotification, object: nil, userInfo: ["vc" : controllerToPush!])
-            print("Posted")
-        }
+        self.prepareForDismiss(["vc" : controllerToPush!])
+        
 //        self.navigationController?.pushViewController(controllerToPush!, animated: true)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func prepareForDismiss(dict: [String : UIViewController]?) {
+        self.dismissViewControllerAnimated(true) {
+            NSNotificationCenter.defaultCenter().postNotificationName(self.model.menuDismissedNotification, object: nil, userInfo: dict)
+            print("Posted")
+        }
     }
 }

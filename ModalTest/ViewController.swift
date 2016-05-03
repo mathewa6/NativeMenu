@@ -12,9 +12,10 @@ class ViewController: UIViewController {
     
     func menuDismiss(notification: NSNotification) {
         print("Received")
-        let controller = notification.userInfo!["vc"] as! UIViewController!
-        self.navigationController?.pushViewController(controller, animated: true)
-
+        if let info = notification.userInfo {
+            let s = info["vc"]  as! UIViewController
+            self.navigationController?.pushViewController(s, animated: true)
+        }
     }
     
     override func viewDidLoad() {
