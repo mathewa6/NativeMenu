@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,7 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxV-gC-S7K">
-                                <rect key="frame" x="283" y="285" width="34" height="30"/>
+                                <rect key="frame" x="272.5" y="272.5" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xxV-gC-S7K" secondAttribute="height" multiplier="1:1" id="Ntu-Xo-FJQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <segue destination="fFL-b0-k4C" kind="show" id="cBf-sR-7Fl"/>
@@ -209,6 +214,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="F4S-1i-t3t"/>
+        <segue reference="sAG-W3-FtF"/>
     </inferredMetricsTieBreakers>
 </document>

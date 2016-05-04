@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor.lightGrayColor()
+        self.view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(menuDismiss(_:)),
                                                          name: model.menuDismissedNotification,
